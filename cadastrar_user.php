@@ -82,7 +82,7 @@ if (count($_POST) > 0) {
             <a href="/lista.php" style="color: white;">Lista de Usuários</a>
         </nav>
     </header>
-    <center>
+    
         <form action="" method="post">
 
             <h2>Cadastro de Usuários</h2>
@@ -108,7 +108,7 @@ if (count($_POST) > 0) {
             <input type="submit" value="Cadastrar">
         </form>
 
-    </center>
+    
 
     
 
