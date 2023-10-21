@@ -51,7 +51,7 @@
 
                     ?>
                      <tr>
-                         <td></td>
+                         <td><?php echo $user['id'];?></td>
                          <td></td>
                          <td></td>
                          <td></td>
