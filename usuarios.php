@@ -34,8 +34,6 @@
              <th>ID</th>
              <th>Nome</th>
              <th>Email</th>
-             <th>Telefone</th>
-             <th>Nascimento</th>
              <th>Data</th>
              <th></th>
          </thead>
@@ -55,9 +53,7 @@
                          <td></td>
                          <td></td>
                          <td></td>
-                         <td></td>
-                         <td></td>
-                         <td></td>
+                         
                      </tr>
              <?php }
                 } ?>
@@ -67,9 +63,7 @@
                  <td></td>
                  <td></td>
                  <td></td>
-                 <td></td>
-                 <td></td>
-                 <td></td>
+                 
              </tr>
 
          </tbody>

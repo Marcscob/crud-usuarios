@@ -11,9 +11,7 @@ if(count($_POST) > 0) {
     $erro = false;
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $telefone = $_POST['telefone'];
-    $nascimento = $_POST['nascimento'];
-
+    
     if(empty($nome)) {
         $erro = "Preencha o nome";
     }
@@ -21,29 +19,13 @@ if(count($_POST) > 0) {
         $erro = "Preencha o e-mail";
     }
 
-    if(!empty($nascimento)) { 
-        $pedacos = explode('/', $nascimento);
-        if(count($pedacos) == 3) {
-            $nascimento = implode ('-', array_reverse($pedacos));
-        } else {
-            $erro = "A data de nascimento deve seguir o padrão dia/mes/ano.";
-        }
-    }
-
-    if(!empty($telefone)) {
-        $telefone = limpar_texto($telefone);
-        if(strlen($telefone) != 11)
-            $erro = "O telefone deve ser preenchido no padrão (11) 98888-8888";
-    }
-
-    if($erro) {
+    
+   if($erro) {
         echo "<p><b>ERRO: $erro</b></p>";
     } else {
         $sql_code = "UPDATE clientes
         SET nome = '$nome', 
-        email = '$email', 
-        telefone = '$telefone',
-        nascimento = '$nascimento'
+        email = '$email' 
         WHERE id = '$id'";
         $deu_certo = $mysqli->query($sql_code) or die($mysqli->error);
         if($deu_certo) {
@@ -80,14 +62,8 @@ $cliente = $query_cliente->fetch_assoc();
             <label>E-mail:</label>
             <input value="<?php echo $cliente['email']; ?>" name="email" type="text">
         </p>
-        <p>
-            <label>Telefone:</label>
-            <input value="<?php if(!empty($cliente['telefone'])) echo formatar_telefone($cliente['telefone']); ?>"  placeholder="(11) 98888-8888" name="telefone" type="text">
-        </p>
-        <p>
-            <label>Data de Nascimento:</label>
-            <input value="<?php if(!empty($cliente['nascimento'])) echo formatar_data($cliente['nascimento']); ?>"  name="nascimento" type="text">
-        </p>
+        
+        
         <p>
             <button type="submit">Salvar Usuário</button>
         </p>
